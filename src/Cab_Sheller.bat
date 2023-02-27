@@ -1,9 +1,9 @@
 ::[Bat To Exe Converter]
 ::
-::fBE1pAF6MU+EWHzeyAEULQ1obwWAA1iyA7kQ7frH/e+Unk8RVeE0No3WytQ=
-::fBE1pAF6MU+EWHzeyAEULQ1obwWAA1iyA7kQ7frH/e+Unk8RVeE0fIDPlLebMoA=
+::fBE1pAF6MU+EWH3eyGMiKxpQSTigPXmuCaUj2/Ho+++KnmQTR/Y+dIPnmZCLNtww60fbRp4o2nZfivceCQhkfB6qbQR6q2NS1g==
+::fBE1pAF6MU+EWH3eyGMiKxpQSTigPXmuCaUj2/Ho+++KnmQTR/Y+dIPnmZCLNtww60fbRp4o2nZfivceCQhkfB6qbQQwpnoMtXGXVw==
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCqDJBqg8VQMCxpWczeKOWe2A6cg4ev00+uVoUwZUaw2e4C7
+::fBw5plQjdCuDJHiW90M0LSd2TRaWM3uFNawP/O3208OJsVkcWO4DO6vezIitIeIs2U3heZooxEZTm8QwDQlbfxauIAY3pg4=
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -28,7 +28,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCqDJBqg8VQMCxpWczeKOWe2A6cgy+n50NmPp0ERUfAAYNmPlLGWJYA=
+::Zh4grVQjdCuDJHiW90M0LSd2TRaWM3uFNawP/O3208OJsVkcWO4DO6vezIitIeIs2U3heZooxEZ5mckzPxNdch6ufDAs/zoMs3yAVw==
 ::YB416Ek+ZG8=
 ::
 ::
@@ -149,10 +149,12 @@ if "%Shell%" == "explorer.exe" (
 	:: Disable windows 10 lock screen.
 	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\SessionData" /f /v "AllowLockScreen" /t REG_DWORD /d 0 >nul 2>&1
 	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization" /f /v "NoLockScreen" /t REG_DWORD /d 1 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI" /f /v "AnimationDisabled" /t REG_DWORD /d 1 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /f /v "UIVerbosityLevel" /t REG_DWORD /d 1 >nul 2>&1
 	:: Change login graphics.
-	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Background" /f /v OEMBackground /t REG_DWORD /d 1 >nul 2>&1
-	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Embedded\EmbeddedLogon" /f /v HideAutoLogonUI /t REG_DWORD /d 1 >nul 2>&1
-	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Embedded\EmbeddedLogon" /f /v HideFirstLogonAnimation /t REG_DWORD /d 1 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Background" /f /v "OEMBackground" /t REG_DWORD /d 1 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Embedded\EmbeddedLogon" /f /v "HideAutoLogonUI" /t REG_DWORD /d 1 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Embedded\EmbeddedLogon" /f /v "HideFirstLogonAnimation" /t REG_DWORD /d 1 >nul 2>&1
 	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /f /v "DisableLogonBackgroundImage" /t REG_DWORD /d 1 >nul 2>&1
 	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System" /f /v "DisableLogonBackgroundImage" /t REG_DWORD /d 1 >nul 2>&1
 	:: Disable auto update.
@@ -249,10 +251,12 @@ if "%Shell%" == "explorer.exe" (
 	:: Re-enable windows 10 lock screen.
 	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\SessionData" /f /v "AllowLockScreen" /t REG_DWORD /d 1 >nul 2>&1
 	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization" /f /v "NoLockScreen" /t REG_DWORD /d 0 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI" /f /v "AnimationDisabled" /t REG_DWORD /d 0 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /f /v "UIVerbosityLevel" /t REG_DWORD /d 0 >nul 2>&1
 	:: Change login graphics.
-	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Background" /f /v OEMBackground /t REG_DWORD /d 0 >nul 2>&1
-	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Embedded\EmbeddedLogon" /f /v HideAutoLogonUI /t REG_DWORD /d 0 >nul 2>&1
-	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Embedded\EmbeddedLogon" /f /v HideFirstLogonAnimation /t REG_DWORD /d 0 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Background" /f /v "OEMBackground" /t REG_DWORD /d 0 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Embedded\EmbeddedLogon" /f /v "HideAutoLogonUI" /t REG_DWORD /d 0 >nul 2>&1
+	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Embedded\EmbeddedLogon" /f /v "HideFirstLogonAnimation" /t REG_DWORD /d 0 >nul 2>&1
 	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /f /v "DisableLogonBackgroundImage" /t REG_DWORD /d 0 >nul 2>&1
 	reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System" /f /v "DisableLogonBackgroundImage" /t REG_DWORD /d 0 >nul 2>&1
 	:: Re-enable auto update.
